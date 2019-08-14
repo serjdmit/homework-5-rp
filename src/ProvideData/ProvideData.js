@@ -18,4 +18,6 @@ import {getLoggedInUser} from '../utils'
   const user = getLoggedInUser()
 */
 
-export const WithLoggedInUser = () => {}
+const user = getLoggedInUser();
+
+export const WithLoggedInUser = ({children}) => children(user)

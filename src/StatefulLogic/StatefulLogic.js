@@ -15,4 +15,14 @@ import { getLoggedInUser } from '../utils';
 */
 
 export const WithTooltip = ({ children }) => {
+    const [ tooltip, setTooltip ] = useState(false);
+
+    const toggleTooltip = () => setTooltip(!tooltip);
+
+    return (
+        <>
+            {children(toggleTooltip)}
+            {tooltip && <div data-testid="tooltip">Hello, i'm Tooltip</div>}
+        </>
+    );
 };
